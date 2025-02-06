@@ -1,0 +1,288 @@
+openapi: 3.0.3
+info:
+  title: 'Solutech Bookings'
+  description: ''
+  version: 1.0.0
+servers:
+  -
+    url: 'https://bookings.nguzotech.com'
+paths:
+  /api/tours:
+    get:
+      summary: 'List all the tours.'
+      operationId: listAllTheTours
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/tours could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/tours could not be found.'
+      tags:
+        - Endpoints
+    post:
+      summary: 'Store a new tour.'
+      operationId: storeANewTour
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+  '/api/tours/{id}':
+    get:
+      summary: 'Show a tour.'
+      operationId: showATour
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/tours/tempora could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/tours/tempora could not be found.'
+      tags:
+        - Endpoints
+    put:
+      summary: 'Update a tour'
+      operationId: updateATour
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+    delete:
+      summary: 'Destroy a tour'
+      operationId: destroyATour
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the tour.'
+        example: tempora
+        required: true
+        schema:
+          type: string
+  /api/destinations:
+    get:
+      summary: 'List all the destinations.'
+      operationId: listAllTheDestinations
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/destinations could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/destinations could not be found.'
+      tags:
+        - Endpoints
+    post:
+      summary: 'Store a new destination.'
+      operationId: storeANewDestination
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: blanditiis
+                description:
+                  type: string
+                  description: ''
+                  example: 'Animi quas autem ut reprehenderit.'
+              required:
+                - name
+                - description
+  '/api/destinations/{id}':
+    get:
+      summary: 'Show a destination.'
+      operationId: showADestination
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/destinations/qui could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/destinations/qui could not be found.'
+      tags:
+        - Endpoints
+    put:
+      summary: 'Update a destination'
+      operationId: updateADestination
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: inventore
+                description:
+                  type: string
+                  description: ''
+                  example: 'Mollitia nostrum exercitationem ut fugiat quia nemo.'
+              required:
+                - name
+                - description
+    delete:
+      summary: 'Destroy a destination'
+      operationId: destroyADestination
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the destination.'
+        example: qui
+        required: true
+        schema:
+          type: string
+  /api/bookings:
+    get:
+      summary: 'List all the bookings.'
+      operationId: listAllTheBookings
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/bookings could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/bookings could not be found.'
+      tags:
+        - Endpoints
+    post:
+      summary: 'Store a new booking.'
+      operationId: storeANewBooking
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+  '/api/bookings/{id}':
+    get:
+      summary: 'Show a booking.'
+      operationId: showABooking
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/bookings/exercitationem could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/bookings/exercitationem could not be found.'
+      tags:
+        - Endpoints
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the booking.'
+        example: exercitationem
+        required: true
+        schema:
+          type: string
+  /api/stats:
+    get:
+      summary: ''
+      operationId: getApiStats
+      description: ''
+      parameters: []
+      responses:
+        404:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: 'The route api/stats could not be found.'
+                properties:
+                  message:
+                    type: string
+                    example: 'The route api/stats could not be found.'
+      tags:
+        - Endpoints
+tags:
+  -
+    name: Endpoints
+    description: ''
+components:
+  securitySchemes:
+    default:
+      type: http
+      scheme: bearer
+      description: 'You can retrieve your token by visiting your dashboard and clicking <b>API Tokens</b>.'
+security:
+  -
+    default: []

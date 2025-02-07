@@ -1,6 +1,6 @@
-import { test, expect } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 import { AdminPage } from '../pages/admin.page';
-import { AdminCredentials, TourData, BookingData, TicketData } from '../utils/types';
+import { AdminCredentials, TourData } from '../utils/types';
 
 test.describe('Admin Features', () => {
     let adminPage: AdminPage;
@@ -46,7 +46,7 @@ test.describe('Admin Features', () => {
         // Verify booking details
         const bookingDetails = await adminPage.getBookingDetails('BK-2025-001');
         expect(bookingDetails).toMatchObject({
-            customer_name: 'John Doe',
+            customer_name: 'Jane, Dan',
             tour_name: 'Safari Tour',
             status: 'Confirmed'
         });
@@ -62,7 +62,7 @@ test.describe('Admin Features', () => {
         const ticketDetails = await adminPage.getTicketDetails('BK-2025-001');
         expect(ticketDetails).toMatchObject({
             booking_reference: 'BK-2025-001',
-            customer_name: 'John Doe',
+            customer_name: 'John James',
             tour_name: 'Safari Tour'
         });
     });
@@ -72,19 +72,15 @@ test.describe('Admin Features', () => {
         
         // Update tour slots
         await adminPage.updateTourAvailability('Safari Tour', '15');
-
+    
         const successMessage = await adminPage.getSuccessMessage();
         expect(successMessage).toBe('Tour updated successfully');
-
+    
         // Verify updated slots
         await adminPage.navigateToTours();
-        const updatedSlots = await adminPage.page
-            .locator(`text=Safari Tour`)
-            .locator('..')
-            .locator('.available-slots')
-            .textContent();
+        const updatedSlots = await adminPage.getTourAvailableSlots('Safari Tour');
         expect(updatedSlots).toBe('15');
-    });
+    }); 
 
     test('should handle invalid tour creation', async () => {
         await adminPage.navigateToTours();

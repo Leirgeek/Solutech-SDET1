@@ -11,6 +11,11 @@ interface BookingDetails {
 export class BookingPage {
     constructor(private page: Page) {}
 
+    // Getter for page
+    public getPage(): Page {
+        return this.page;
+    }
+
     // Navigation
     async goto() {
         await this.page.goto('/');

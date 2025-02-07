@@ -100,6 +100,9 @@ test.describe('Booking Feature', () => {
         
         // Get base price
         const basePrice = await bookingPage.getTourPrice(tourName);
+        if (!basePrice) {
+            throw new Error(`Could not find price for tour: ${tourName}`);
+        }
         const basePriceNumber = parseInt(basePrice.replace(/[^0-9]/g, ''));
         
         // Fill booking with multiple passengers
@@ -110,7 +113,7 @@ test.describe('Booking Feature', () => {
         
         // Verify total price
         const expectedTotal = basePriceNumber * parseInt(passengers);
-        const totalElement = await bookingPage.page.locator('.total-price');
+        const totalElement = await bookingPage.getPage().locator('.total-price');
         const actualTotal = parseInt((await totalElement.textContent() || '').replace(/[^0-9]/g, ''));
         
         expect(actualTotal).toBe(expectedTotal);

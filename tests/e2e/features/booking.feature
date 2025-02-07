@@ -8,7 +8,7 @@ Feature: Tour Booking
     When I select a tour from the list
     And I fill in the booking details
       | name      | email           | phone      | date       | passengers |
-      | John Doe  | john@email.com  | 1234567890 | 2025-03-01 | 2          |
+      | John Doe  | john@email.com  | 12868267890 | 2025-03-01 | 2          |
     And I submit the booking form
     Then I should see a booking confirmation
     And I should be able to generate a ticket

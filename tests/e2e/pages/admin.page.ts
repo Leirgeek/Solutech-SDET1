@@ -4,6 +4,14 @@ import { AdminCredentials, TourData, BookingData, TicketData } from '../utils/ty
 export class AdminPage {
     constructor(private page: Page) {}
 
+    async getTourAvailableSlots(tourName: string) {
+        return await this.page
+            .locator(`text=${tourName}`)
+            .locator('..')
+            .locator('.available-slots')
+            .textContent();
+    }
+
     // Navigation
     async goto() {
         await this.page.goto('/admin');

@@ -28,4 +28,26 @@ export class LoginPage {
     async getCurrentUrl() {
         return this.page.url();
     }
+
+    async submitEmptyForm() {
+        await this.page.click('button[type="submit"]');
+    }
+
+    async getFieldValidationError(fieldName: string) {
+        const field = this.page.locator(`input[name="${fieldName}"]`);
+        return field.evaluate((el: HTMLInputElement) => el.validity.valid === false);
+    }
+
+    async getUserInfo() {
+        const userInfo = await this.page.locator('.user-info').textContent();
+        return userInfo || '';
+    }
+    
+    async isDashboardVisible() {
+        return await this.page.isVisible('.dashboard-container');
+    }
+    
+    async checkRememberMe() {
+        await this.page.click('input[name="remember"]');
+    }
 }

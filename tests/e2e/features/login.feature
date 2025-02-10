@@ -7,7 +7,7 @@ Feature: User Login
     Given I am on the login page
     When I enter valid credentials
       | email              | password |
-      | admin@example.com  | password |
+      | admin@account.com  | password |
     And I click the login button
     Then I should be redirected to the dashboard
     And I should see my user information
@@ -39,7 +39,7 @@ Feature: User Login
     Given I am on the login page
     When I enter credentials with correct email but wrong password
       | email              | password    |
-      | admin@example.com  | wrongpass   |
+      | admin@account.com | wrongpass   |
     And I click the login button
     Then I should see an invalid credentials error message
 
@@ -47,7 +47,7 @@ Feature: User Login
     Given I am on the login page
     When I enter valid credentials
       | email              | password |
-      | admin@example.com  | password |
+      | admin@account.com  | password |
     And I check the remember me checkbox
     And I click the login button
     Then I should be logged in

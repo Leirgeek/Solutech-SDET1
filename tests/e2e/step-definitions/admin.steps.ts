@@ -4,8 +4,8 @@ import { AdminPage } from '../pages/admin.page';
 import { AdminCredentials, TourData } from '../utils/types';
 
 const adminCredentials: AdminCredentials = {
-    email: 'admin@example.com',
-    password: 'admin123!'
+    email: 'admin@account.com',
+    password: 'password'
 };
 
 Given('I am logged in as an admin', async function() {

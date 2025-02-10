@@ -14,19 +14,19 @@ export class AdminPage {
 
     // Navigation
     async goto() {
-        await this.page.goto('/admin');
+        await this.page.goto('/dashboard');
     }
 
     async navigateToTours() {
-        await this.page.goto('/admin/tours');
+        await this.page.goto('/tours');
     }
 
     async navigateToBookings() {
-        await this.page.goto('/admin/bookings');
+        await this.page.goto('/bookings');
     }
 
     async navigateToTickets() {
-        await this.page.goto('/admin/tickets');
+        await this.page.goto('/tickets');
     }
 
     // Authentication
@@ -35,7 +35,7 @@ export class AdminPage {
         await this.page.fill('input[name="email"]', credentials.email);
         await this.page.fill('input[name="password"]', credentials.password);
         await this.page.click('button[type="submit"]');
-        await this.page.waitForURL('/admin');
+        await this.page.waitForURL('/dashboard');
     }
 
     // Tour Management
@@ -43,8 +43,8 @@ export class AdminPage {
         await this.page.click('text=Create New Tour');
         await this.page.fill('input[name="title"]', tourData.title);
         await this.page.fill('textarea[name="description"]', tourData.description);
-        await this.page.fill('input[name="price"]', tourData.price);
         await this.page.fill('input[name="destination"]', tourData.destination);
+        await this.page.fill('input[name="price"]', tourData.price);
         await this.page.fill('input[name="available_slots"]', tourData.available_slots);
         await this.page.click('button:text("Save Tour")');
     }

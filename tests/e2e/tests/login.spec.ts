@@ -10,7 +10,7 @@ test.describe('Login Feature', () => {
     });
 
     test('should display error message with invalid credentials', async () => {
-        await loginPage.login('invalid@email.com', 'wrongpassword');
+        await loginPage.login('james@gmail.com', 'wrongpassword');
         
         const errorMessage = await loginPage.getErrorMessage();
         expect(errorMessage).toContain('Invalid credentials');
@@ -21,7 +21,7 @@ test.describe('Login Feature', () => {
     });
 
     test('should login successfully with valid credentials', async () => {
-        await loginPage.login('admin@example.com', 'admin123!');
+        await loginPage.login('james@gmail.com', 'password');
         
         // Verify successful login
         expect(await loginPage.isLoggedIn()).toBeTruthy();
@@ -41,7 +41,7 @@ test.describe('Login Feature', () => {
     });
 
     test('should validate email format', async () => {
-        await loginPage.login('invalidemail', 'password123');
+        await loginPage.login('james.gmail.com', 'password123');
         
         const errorMessage = await loginPage.getErrorMessage();
         expect(errorMessage).toContain('Please enter a valid email address');
@@ -56,7 +56,7 @@ test.describe('Login Feature', () => {
             });
         });
 
-        await loginPage.login('admin@example.com', 'admin123!');
+        await loginPage.login('james@gmail.com', 'password');
         
         const errorMessage = await loginPage.getErrorMessage();
         expect(errorMessage).toContain('Something went wrong');

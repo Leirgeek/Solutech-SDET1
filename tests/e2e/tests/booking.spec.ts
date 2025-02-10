@@ -5,9 +5,9 @@ test.describe('Booking Feature', () => {
     let bookingPage: BookingPage;
 
     const validBookingDetails = {
-        name: 'John Doe',
-        email: 'john.doe@example.com',
-        phone: '1234567890',
+        name: 'John James',
+        email: 'john.james@gmail.com',
+        phone: '1295067890',
         date: '2025-03-01',
         passengers: '2'
     };

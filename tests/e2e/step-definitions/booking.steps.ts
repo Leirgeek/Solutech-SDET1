@@ -37,13 +37,13 @@ Then('I should be able to generate a ticket', async function() {
 // Admin steps
 Given('I am logged in as an admin', async function() {
     await this.page.goto('http://localhost:8000/login');
-    await this.page.fill('input[type="email"]', 'admin@example.com');
+    await this.page.fill('input[type="email"]', 'admin@account.com');
     await this.page.fill('input[type="password"]', 'password');
     await this.page.click('button[type="submit"]');
 });
 
 When('I navigate to the tour creation page', async function() {
-    await this.page.goto('http://localhost:8000/admin/tours/create');
+    await this.page.goto('http://localhost:8000/tours/create');
 });
 
 When('I fill in the tour details', async function(dataTable) {
@@ -65,7 +65,7 @@ Then('the tour should be created successfully', async function() {
 });
 
 When('I navigate to the bookings page', async function() {
-    await this.page.goto('http://localhost:8000/admin/bookings');
+    await this.page.goto('http://localhost:8000/bookings');
 });
 
 Then('I should see a list of all bookings', async function() {
@@ -80,7 +80,7 @@ Then('I should be able to view booking details', async function() {
 });
 
 When('I navigate to the tickets page', async function() {
-    await this.page.goto('http://localhost:8000/admin/tickets');
+    await this.page.goto('http://localhost:8000/tickets');
 });
 
 Then('I should see a list of all generated tickets', async function() {
